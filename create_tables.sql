@@ -14,7 +14,8 @@ CREATE TABLE admin_users (
 CREATE TABLE subfamilies (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    description TEXT
+    description TEXT,
+    image_url TEXT
 );
 
 -- Genes table
@@ -24,6 +25,7 @@ CREATE TABLE genes (
     subfamily_id INT,
     region VARCHAR(100),
     description TEXT,
+    image_url TEXT,
     FOREIGN KEY (subfamily_id) REFERENCES subfamilies(id) ON DELETE SET NULL
 );
 
@@ -37,6 +39,8 @@ CREATE TABLE species (
     map_link TEXT,
     image_url TEXT,
     pdf_url TEXT,
+    latitude DECIMAL(10, 8),
+    longitude DECIMAL(11, 8),
     subfamily_id INT,
     gene_id INT,
     FOREIGN KEY (subfamily_id) REFERENCES subfamilies(id) ON DELETE SET NULL,
@@ -57,7 +61,34 @@ CREATE TABLE literature (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
     authors TEXT,
+    year INT,
     link TEXT,
     pdf TEXT
+);
+
+-- News table
+CREATE TABLE news (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    link TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Backgrounds table  
+CREATE TABLE backgrounds (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    image_url TEXT NOT NULL,
+    page VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Contacts table
+CREATE TABLE contacts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
