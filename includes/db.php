@@ -37,5 +37,20 @@ try {
         echo "Server time: " . $stmt->fetchColumn();
     }
 } catch (PDOException $e) {
-    die("❌ Database Connection Failed: " . $e->getMessage());
+    // Log error instead of dying to prevent 500 errors
+    error_log("Database Connection Failed: " . $e->getMessage());
+    
+    // For now, create a mock PDO object to prevent fatal errors
+    // This allows the app to load even without database connection
+    $pdo = new class {
+        public function query($sql) {
+            throw new Exception("Database not available");
+        }
+        public function prepare($sql) {
+            throw new Exception("Database not available");
+        }
+        public function exec($sql) {
+            throw new Exception("Database not available");
+        }
+    };
 }
