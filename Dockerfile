@@ -36,7 +36,7 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
 # Enable Apache modules
-RUN a2enmod rewrite headers
+RUN a2enmod rewrite headers expires deflate
 
 # Configure Apache virtual host
 RUN echo '<VirtualHost *:80>\n\
