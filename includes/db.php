@@ -1,7 +1,7 @@
 <?php
 // Database configuration - supports both local and Render deployment
 $host = $_ENV['DB_HOST'] ?? 'mysql-f82fb10-harsh-95b2.d.aivencloud.com';
-$port = $_ENV['DB_PORT'] ?? '13853';
+$port = (int)($_ENV['DB_PORT'] ?? '13853');
 $dbname = $_ENV['DB_NAME'] ?? 'defaultdb';
 $user = $_ENV['DB_USER'] ?? 'avnadmin';
 $pass = $_ENV['DB_PASSWORD'] ?? 'AVNS_xjqBzadfCGiLfDQ_Dcb';
