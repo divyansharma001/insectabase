@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: insectabase
+    env: php
+    plan: free
+    buildCommand: composer install --no-dev --optimize-autoloader
+    startCommand: php -S 0.0.0.0:$PORT
+    envVars:
+      - key: PHP_VERSION
+        value: 8.1
+      - key: DB_HOST
+        fromDatabase:
+          name: insectabase-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: insectabase-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: insectabase-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: insectabase-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: insectabase-db
+          property: password
+
+databases:
+  - name: insectabase-db
+    plan: free
+    databaseName: insectabase
+    user: insectabase_user
