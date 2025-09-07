@@ -36,24 +36,60 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
         /* ✅ 2. CSS FOR BODY REMOVED - It's now handled by the new system */
         
         .header-banner {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.95) 100%);
+            padding: 60px 20px;
             text-align: center;
             border-bottom: 4px solid #0d6efd;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .header-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23000" opacity="0.02"/><circle cx="75" cy="75" r="1" fill="%23000" opacity="0.02"/><circle cx="50" cy="10" r="0.5" fill="%23000" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
         }
         .header-banner h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #004d40;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .header-banner p {
+            font-size: 1.3rem;
+            color: #2c5530;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
         }
         .card-custom {
             border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
             background-color: #fff;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         .card-custom img {
-            border-radius: 6px 6px 0 0;
+            border-radius: 15px 15px 0 0;
+            transition: transform 0.3s ease;
+        }
+        .card-custom:hover img {
+            transform: scale(1.05);
         }
         .potd-image {
             width: 100%;
@@ -173,24 +209,33 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
         <h2 class="section-title observe-slide-left">Quick Stats</h2>
         <div class="row text-center">
             <div class="col-md-4">
-                <div class="card-custom p-4 observe-scale">
-                    <i class="bi bi-bug display-4 text-success"></i>
-                    <h4>Total Species</h4>
-                    <p class="fs-3 fw-bold"><?= $speciesCount ?></p>
+                <div class="card-custom p-4 observe-scale" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                    <div class="stat-icon mb-3">
+                        <i class="bi bi-bug display-4 text-success" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
+                    </div>
+                    <h4 class="text-dark mb-2">Total Species</h4>
+                    <p class="fs-2 fw-bold text-success mb-0"><?= number_format($speciesCount) ?></p>
+                    <small class="text-muted">Documented Species</small>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card-custom p-4 observe-scale">
-                    <i class="bi bi-diagram-3 display-4 text-info"></i>
-                    <h4>Genes</h4>
-                    <p class="fs-3 fw-bold"><?= $geneCount ?></p>
+                <div class="card-custom p-4 observe-scale" style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);">
+                    <div class="stat-icon mb-3">
+                        <i class="bi bi-diagram-3 display-4 text-info" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
+                    </div>
+                    <h4 class="text-dark mb-2">Genes</h4>
+                    <p class="fs-2 fw-bold text-info mb-0"><?= number_format($geneCount) ?></p>
+                    <small class="text-muted">Genetic Sequences</small>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card-custom p-4 observe-scale">
-                    <i class="bi bi-collection display-4 text-warning"></i>
-                    <h4>Subfamilies</h4>
-                    <p class="fs-3 fw-bold"><?= $subfamilyCount ?></p>
+                <div class="card-custom p-4 observe-scale" style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);">
+                    <div class="stat-icon mb-3">
+                        <i class="bi bi-collection display-4 text-warning" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
+                    </div>
+                    <h4 class="text-dark mb-2">Subfamilies</h4>
+                    <p class="fs-2 fw-bold text-warning mb-0"><?= number_format($subfamilyCount) ?></p>
+                    <small class="text-muted">Taxonomic Groups</small>
                 </div>
             </div>
         </div>
@@ -217,17 +262,39 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
             <?php endif; ?>
         </div>
 
-        <h2 class="section-title observe-fade-in">Latest Insect News</h2>
+        <h2 class="section-title observe-fade-in">Latest Research & News</h2>
         <?php if ($news): ?>
         <div class="news-infinite-container">
-            <ul class="list-group mb-5">
-                <?php foreach ($news as $index => $n): ?>
-                <li class="list-group-item d-flex justify-content-between align-items-center news-item" style="animation-delay: <?= ($index * 0.1) ?>s">
-                    <a href="<?= htmlspecialchars($n['link']) ?>" target="_blank">📝 <?= htmlspecialchars($n['title']) ?></a>
-                    <span class="badge bg-secondary"><?= date('M d, Y', strtotime($n['created_at'])) ?></span>
-                </li>
+            <div class="row">
+                <?php foreach (array_slice($news, 0, 6) as $index => $n): ?>
+                <div class="col-md-6 mb-3">
+                    <div class="card-custom p-3 news-item" style="animation-delay: <?= ($index * 0.1) ?>s; height: 100%;">
+                        <div class="d-flex align-items-start">
+                            <div class="news-icon me-3">
+                                <i class="bi bi-newspaper text-primary" style="font-size: 1.5rem;"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-2">
+                                    <a href="<?= htmlspecialchars($n['link']) ?>" target="_blank" class="text-decoration-none text-dark">
+                                        <?= htmlspecialchars($n['title']) ?>
+                                    </a>
+                                </h6>
+                                <small class="text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>
+                                    <?= date('M d, Y', strtotime($n['created_at'])) ?>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <?php endforeach; ?>
-            </ul>
+            </div>
+            <div class="text-center mt-4">
+                <div class="card-custom p-4" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                    <h5 class="text-muted mb-2">🦋 Comprehensive Research Database</h5>
+                    <p class="text-muted mb-0">Access the latest scientific discoveries, conservation updates, and taxonomic research in the world of Tortricidae moths.</p>
+                </div>
+            </div>
             <?php if (isset($_SESSION['admin_user'])): ?>
             <a href="admin/manage_news.php" class="btn btn-sm btn-outline-light observe-fade-in">Manage News</a>
             <?php endif; ?>
