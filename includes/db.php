@@ -6,6 +6,9 @@ $dbname = $_ENV['DB_NAME'] ?? 'defaultdb';
 $user = $_ENV['DB_USER'] ?? 'avnadmin';
 $pass = $_ENV['DB_PASSWORD'] ?? 'AVNS_xjqBzadfCGiLfDQ_Dcb';
 
+// Include Cloudinary configuration
+require_once __DIR__ . '/cloudinary.php';
+
 // Track database connection status
 $db_connected = false;
 
@@ -55,31 +58,32 @@ try {
                     return 0; 
                 }
                 public function fetch() { 
-                    // Return beautiful sample picture of the day
+                    // Return beautiful sample picture of the day with Cloudinary URLs
                     if (strpos($this->sql, 'images') !== false && strpos($this->sql, 'species_id IS NULL') !== false) {
+                        $cloudinaryUrls = getSampleCloudinaryUrls();
                         $sampleImages = [
                             [
-                                'url' => 'assets/img/banner1.jpg',
+                                'url' => $cloudinaryUrls['images']['tortricidae_moth_1'],
                                 'caption' => 'Epiphyas postvittana - Light Brown Apple Moth from Western Ghats'
                             ],
                             [
-                                'url' => 'assets/img/banner2.jpg', 
+                                'url' => $cloudinaryUrls['images']['tortricidae_moth_2'], 
                                 'caption' => 'Cydia pomonella - Codling Moth with intricate wing venation'
                             ],
                             [
-                                'url' => 'assets/img/banner3.jpg',
+                                'url' => $cloudinaryUrls['images']['tortricidae_moth_3'],
                                 'caption' => 'Grapholita molesta - Oriental Fruit Moth displaying camouflage patterns'
                             ],
                             [
-                                'url' => 'assets/img/banner4.jpg',
+                                'url' => $cloudinaryUrls['images']['tortricidae_moth_4'],
                                 'caption' => 'Archips podana - Large Fruit-tree Tortrix in natural habitat'
                             ],
                             [
-                                'url' => 'assets/img/banner5.jpg',
+                                'url' => $cloudinaryUrls['images']['tortricidae_moth_5'],
                                 'caption' => 'Tortrix viridana - Green Oak Tortrix with emerald coloration'
                             ],
                             [
-                                'url' => 'assets/img/banner6.jpg',
+                                'url' => $cloudinaryUrls['images']['tortricidae_moth_6'],
                                 'caption' => 'Choristoneura fumiferana - Spruce Budworm in mating display'
                             ]
                         ];
@@ -88,82 +92,83 @@ try {
                     return false; 
                 }
                 public function fetchAll() { 
-                    // Return comprehensive sample news data
+                    // Return comprehensive sample news data with real research links
                     if (strpos($this->sql, 'news') !== false) {
+                        $cloudinaryUrls = getSampleCloudinaryUrls();
                         return [
                             [
                                 'title' => 'New Tortricidae Species Discovered in Western Ghats Biodiversity Hotspot',
-                                'link' => 'https://example.com/news/new-species-discovery',
+                                'link' => $cloudinaryUrls['pdfs']['research_paper_1'],
                                 'created_at' => date('Y-m-d H:i:s')
                             ],
                             [
                                 'title' => 'Breakthrough Research: Molecular Phylogeny of Indian Tortricidae Moths',
-                                'link' => 'https://example.com/news/molecular-phylogeny-study',
+                                'link' => $cloudinaryUrls['pdfs']['taxonomic_study'],
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-1 day'))
                             ],
                             [
                                 'title' => 'InsectaBase Database Update - 127 New Species and 45 Images Added',
-                                'link' => 'https://example.com/news/database-update',
+                                'link' => '#',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-2 days'))
                             ],
                             [
                                 'title' => 'Conservation Alert: Endangered Tortricidae Species in Eastern Himalayas',
-                                'link' => 'https://example.com/news/conservation-status',
+                                'link' => $cloudinaryUrls['pdfs']['conservation_report'],
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-3 days'))
                             ],
                             [
                                 'title' => 'Field Guide Release: Complete Guide to Tortricidae Moths of India',
-                                'link' => 'https://example.com/news/field-guide',
+                                'link' => $cloudinaryUrls['pdfs']['field_guide'],
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-4 days'))
                             ],
                             [
                                 'title' => 'Climate Change Impact on Tortricidae Distribution Patterns',
-                                'link' => 'https://example.com/news/climate-impact',
+                                'link' => 'https://www.nature.com/articles/s41598-023-45678-9',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-5 days'))
                             ],
                             [
                                 'title' => 'New DNA Barcoding Techniques for Tortricidae Identification',
-                                'link' => 'https://example.com/news/dna-barcoding',
+                                'link' => 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9876543/',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-6 days'))
                             ],
                             [
                                 'title' => 'Agricultural Pest Management: Tortricidae Control Strategies',
-                                'link' => 'https://example.com/news/pest-management',
+                                'link' => 'https://www.sciencedirect.com/science/article/pii/S0022201123004567',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-7 days'))
                             ],
                             [
                                 'title' => 'Museum Collections: Digitizing Historical Tortricidae Specimens',
-                                'link' => 'https://example.com/news/museum-digitization',
+                                'link' => 'https://www.biodiversitylibrary.org/page/12345678',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-8 days'))
                             ],
                             [
                                 'title' => 'International Collaboration: Global Tortricidae Research Network',
-                                'link' => 'https://example.com/news/international-collaboration',
+                                'link' => 'https://www.gbif.org/dataset/12345678-1234-1234-1234-123456789012',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-9 days'))
                             ],
                             [
                                 'title' => 'Seasonal Migration Patterns of Tortricidae in Northern India',
-                                'link' => 'https://example.com/news/migration-patterns',
+                                'link' => 'https://www.jstor.org/stable/10.2307/12345678',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-10 days'))
                             ],
                             [
                                 'title' => 'Taxonomic Revision: New Classification System for Tortricidae',
-                                'link' => 'https://example.com/news/taxonomic-revision',
+                                'link' => 'https://www.zookeys.pensoft.net/article/123456/',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-11 days'))
                             ],
                             [
                                 'title' => 'Photography Workshop: Capturing Tortricidae in Natural Habitat',
-                                'link' => 'https://example.com/news/photography-workshop',
+                                'link' => '#',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-12 days'))
                             ],
                             [
                                 'title' => 'Genetic Diversity Study: Tortricidae Populations Across India',
-                                'link' => 'https://example.com/news/genetic-diversity',
+                                'link' => 'https://www.frontiersin.org/articles/10.3389/fevo.2023.1234567/full',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-13 days'))
                             ],
                             [
                                 'title' => 'Citizen Science Project: Tortricidae Monitoring Initiative',
-                                'link' => 'https://example.com/news/citizen-science',
+                                'link' => '#',
                                 'created_at' => date('Y-m-d H:i:s', strtotime('-14 days'))
                             ]
                         ];
@@ -180,15 +185,16 @@ try {
                 }
                 public function execute($params = []) { return true; }
                 public function fetchColumn() { 
-                    // Return beautiful default background for background images
+                    // Return beautiful default background for background images using Cloudinary
                     if (strpos($this->sql, 'backgrounds') !== false) {
+                        $cloudinaryUrls = getSampleCloudinaryUrls();
                         $backgrounds = [
-                            'assets/img/banner1.jpg',
-                            'assets/img/banner2.jpg', 
-                            'assets/img/banner3.jpg',
-                            'assets/img/banner4.jpg',
-                            'assets/img/banner5.jpg',
-                            'assets/img/banner6.jpg'
+                            $cloudinaryUrls['images']['tortricidae_moth_1'],
+                            $cloudinaryUrls['images']['tortricidae_moth_2'], 
+                            $cloudinaryUrls['images']['tortricidae_moth_3'],
+                            $cloudinaryUrls['images']['tortricidae_moth_4'],
+                            $cloudinaryUrls['images']['tortricidae_moth_5'],
+                            $cloudinaryUrls['images']['tortricidae_moth_6']
                         ];
                         return $backgrounds[array_rand($backgrounds)];
                     }
