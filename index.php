@@ -164,6 +164,8 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
     <p>Indian Tortricidae Database Platform</p>
 </div>
 
+<?= getDatabaseStatusMessage() ?>
+
 <div class="content-background" style="background-image: url('<?= $bg_url ?>');">
     <div class="background-overlay"></div>
 
