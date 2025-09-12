@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsectaBase - Responsive Design Test</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .test-section {
+            background: var(--bg-primary);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .breakpoint-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1050;
+        }
+        
+        .device-preview {
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Breakpoint Indicator -->
+    <div class="breakpoint-indicator">
+        <span class="d-block d-sm-none">XS (&lt;576px)</span>
+        <span class="d-none d-sm-block d-md-none">SM (≥576px)</span>
+        <span class="d-none d-md-block d-lg-none">MD (≥768px)</span>
+        <span class="d-none d-lg-block d-xl-none">LG (≥992px)</span>
+        <span class="d-none d-xl-block d-xxl-none">XL (≥1200px)</span>
+        <span class="d-none d-xxl-block">XXL (≥1400px)</span>
+    </div>
+
+    <!-- Test Navigation -->
+    <nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#responsive-test">
+                <img src="assets/img/logo.jpg" alt="Logo" height="45" class="me-3">
+                <span class="text-white fw-bold h5 mb-0">InsectaBase - Responsive Test</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav d-flex flex-row flex-wrap text-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#grid-test">
+                            <i class="bi bi-grid-3x3-gap-fill me-2"></i> Grid Test
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cards-test">
+                            <i class="bi bi-card-image me-2"></i> Cards Test
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#forms-test">
+                            <i class="bi bi-form-check me-2"></i> Forms Test
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#buttons-test">
+                            <i class="bi bi-ui-checks-grid me-2"></i> Buttons Test
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="header-banner text-center mb-4">
+            <h1>Responsive Design Test</h1>
+            <p>Testing the responsive behavior across different screen sizes</p>
+        </div>
+
+        <!-- Grid Test Section -->
+        <div id="grid-test" class="test-section">
+            <h2>Grid System Test</h2>
+            <p>The grid should adapt based on screen size:</p>
+            
+            <div class="infinite-scroll-content">
+                <div class="species-box">
+                    <img src="assets/img/banner1.jpg" alt="Species 1" class="species-image">
+                    <div class="card-body">
+                        <h5 class="card-title">Test Species 1</h5>
+                        <p class="card-text">This is a test species for responsive design testing.</p>
+                    </div>
+                </div>
+                <div class="species-box">
+                    <img src="assets/img/banner2.jpg" alt="Species 2" class="species-image">
+                    <div class="card-body">
+                        <h5 class="card-title">Test Species 2</h5>
+                        <p class="card-text">Another test species to demonstrate responsive grid.</p>
+                    </div>
+                </div>
+                <div class="species-box">
+                    <img src="assets/img/banner3.jpg" alt="Species 3" class="species-image">
+                    <div class="card-body">
+                        <h5 class="card-title">Test Species 3</h5>
+                        <p class="card-text">Third test species for grid layout testing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards Test Section -->
+        <div id="cards-test" class="test-section">
+            <h2>Cards and Stats Test</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="stat-card text-center">
+                        <h3>125</h3>
+                        <p>Total Species</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="stat-card text-center">
+                        <h3>87</h3>
+                        <p>Gene Sequences</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="stat-card text-center">
+                        <h3>23</h3>
+                        <p>Subfamilies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forms Test Section -->
+        <div id="forms-test" class="test-section">
+            <h2>Forms Test</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="testInput" class="form-label">Test Input</label>
+                            <input type="text" class="form-control" id="testInput" placeholder="Enter text">
+                        </div>
+                        <div class="mb-3">
+                            <label for="testSelect" class="form-label">Test Select</label>
+                            <select class="form-select" id="testSelect">
+                                <option selected>Choose...</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="testTextarea" class="form-label">Test Textarea</label>
+                            <textarea class="form-control" id="testTextarea" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <h5>Responsive Behavior:</h5>
+                    <ul>
+                        <li><strong>Mobile:</strong> Form takes full width</li>
+                        <li><strong>Tablet:</strong> Form layout adapts</li>
+                        <li><strong>Desktop:</strong> Side-by-side layout</li>
+                        <li><strong>Touch:</strong> 44px minimum touch targets</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons Test Section -->
+        <div id="buttons-test" class="test-section">
+            <h2>Buttons and Actions Test</h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-mobile-column gap-2 mb-3">
+                        <button class="btn btn-primary">Primary Button</button>
+                        <button class="btn btn-secondary">Secondary Button</button>
+                        <button class="btn btn-success">Success Button</button>
+                        <button class="btn btn-outline-primary">Outline Button</button>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <strong>Responsive Behavior:</strong>
+                        <ul class="mb-0">
+                            <li>Desktop: Buttons in a row</li>
+                            <li>Mobile: Buttons stack vertically (full width)</li>
+                            <li>Touch devices: 44px minimum height for accessibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Test Section -->
+        <div class="test-section">
+            <h2>Table Responsive Test</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Species Name</th>
+                            <th>Scientific Name</th>
+                            <th>Family</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Test Species 1</td>
+                            <td><em>Testicus speciesus</em></td>
+                            <td>Testidae</td>
+                            <td>Test Location</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Test Species 2</td>
+                            <td><em>Exemplum demonstratus</em></td>
+                            <td>Exampleidae</td>
+                            <td>Example Region</td>
+                            <td><span class="badge bg-warning">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Simple responsive test script
+        function checkViewport() {
+            const width = window.innerWidth;
+            console.log('Viewport width:', width);
+            
+            if (width < 576) {
+                console.log('XS - Extra Small devices (phones)');
+            } else if (width < 768) {
+                console.log('SM - Small devices (landscape phones)');
+            } else if (width < 992) {
+                console.log('MD - Medium devices (tablets)');
+            } else if (width < 1200) {
+                console.log('LG - Large devices (desktops)');
+            } else if (width < 1400) {
+                console.log('XL - Extra large devices (large desktops)');
+            } else {
+                console.log('XXL - Extra extra large devices (larger desktops)');
+            }
+        }
+        
+        // Check on load and resize
+        window.addEventListener('load', checkViewport);
+        window.addEventListener('resize', checkViewport);
+        
+        // Test touch capability
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            console.log('Touch device detected');
+            document.body.classList.add('touch-device');
+        }
+    </script>
+</body>
+</html>

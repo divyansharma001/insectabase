@@ -612,6 +612,26 @@ h5 { font-size: 1.25rem; }
 }
 
 /* === ADMIN RESPONSIVE === */
+@media (max-width: 992px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .quick-actions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.25rem;
+    }
+    
+    .quick-action-btn {
+        min-height: 140px;
+        padding: 1.75rem 1.25rem;
+    }
+    
+    .dashboard-stat h3 {
+        font-size: 1.75rem;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
@@ -619,15 +639,32 @@ h5 { font-size: 1.25rem; }
     
     .card {
         padding: 1rem;
+        margin-bottom: 1.5rem;
+        border-radius: var(--border-radius-sm);
     }
     
     .table-responsive {
         font-size: 0.875rem;
+        border-radius: var(--border-radius-sm);
+        margin-bottom: 1.5rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.75rem 0.5rem;
+        vertical-align: middle;
     }
     
     .btn {
         width: 100%;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
+        padding: 0.875rem 1.25rem;
+        font-size: 0.95rem;
+        min-height: 44px; /* Touch-friendly */
+    }
+    
+    .btn:not(.btn-sm):not(.btn-lg) {
+        border-radius: var(--border-radius-sm);
     }
     
     .navbar {
@@ -635,6 +672,7 @@ h5 { font-size: 1.25rem; }
         margin-bottom: 1rem;
         flex-direction: column;
         align-items: stretch;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
     }
     
     .navbar .container-fluid {
@@ -646,21 +684,46 @@ h5 { font-size: 1.25rem; }
     .navbar-brand {
         text-align: center;
         justify-content: center;
-        font-size: 1rem;
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .navbar-brand i {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
     }
     
     .navbar-nav {
         justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
     
     .btn-outline-light {
-        width: 100%;
+        width: auto;
+        flex: 1;
+        min-width: 120px;
         justify-content: center;
         padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        border-radius: var(--border-radius-sm);
     }
     
     .dashboard-stat {
         margin-bottom: 1.5rem;
+        padding: 1.5rem 1.25rem;
+        text-align: center;
+    }
+    
+    .dashboard-stat h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .dashboard-stat p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
     }
     
     .quick-actions-grid {
@@ -671,10 +734,50 @@ h5 { font-size: 1.25rem; }
     .quick-action-btn {
         min-height: 120px;
         padding: 1.5rem 1rem;
+        text-align: center;
+        border-radius: var(--border-radius);
     }
     
     .quick-action-btn i {
         font-size: 2rem;
+        margin-bottom: 0.75rem;
+        display: block;
+    }
+    
+    .quick-action-btn span {
+        font-size: 0.95rem;
+        font-weight: 500;
+    }
+    
+    /* Form improvements */
+    .form-control,
+    .form-select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 0.875rem 0.75rem;
+        border-radius: var(--border-radius-sm);
+        margin-bottom: 1rem;
+    }
+    
+    .form-label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Modal improvements */
+    .modal-dialog {
+        margin: 1rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    .modal-content {
+        border-radius: var(--border-radius);
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 1.25rem 1rem;
     }
 }
 
@@ -685,14 +788,34 @@ h5 { font-size: 1.25rem; }
     
     .card {
         padding: 0.75rem;
+        margin-bottom: 1.25rem;
+        border-radius: var(--border-radius-sm);
+    }
+    
+    .card h3,
+    .card h5 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
     }
     
     .table th, .table td {
-        padding: 0.75rem 0.5rem;
+        padding: 0.625rem 0.375rem;
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .table th {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     
     .btn {
         padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        border-radius: var(--border-radius-sm);
+        margin-bottom: 0.75rem;
     }
     
     .navbar {
@@ -701,17 +824,20 @@ h5 { font-size: 1.25rem; }
     }
     
     .navbar-brand {
-        font-size: 0.95rem;
+        font-size: 1rem;
+        padding: 0.5rem 0.75rem;
     }
     
     .navbar-brand i {
-        font-size: 1rem;
+        font-size: 1.1rem;
         margin-right: 0.375rem;
     }
     
     .btn-outline-light {
-        font-size: 0.9rem;
-        padding: 0.625rem 1rem;
+        font-size: 0.85rem;
+        padding: 0.625rem 0.875rem;
+        min-width: 100px;
+        margin-bottom: 0.5rem;
     }
     
     .btn-outline-light i {
@@ -719,9 +845,25 @@ h5 { font-size: 1.25rem; }
         margin-right: 0.375rem;
     }
     
+    .dashboard-stat {
+        padding: 1.25rem 1rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .dashboard-stat h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .dashboard-stat p {
+        font-size: 0.85rem;
+        margin-bottom: 0;
+    }
+    
     .quick-action-btn {
         min-height: 100px;
         padding: 1.25rem 0.75rem;
+        border-radius: var(--border-radius-sm);
     }
     
     .quick-action-btn i {
@@ -731,6 +873,107 @@ h5 { font-size: 1.25rem; }
     
     .quick-action-btn span {
         font-size: 0.9rem;
+        line-height: 1.2;
+    }
+    
+    /* Form improvements for mobile */
+    .form-control,
+    .form-select,
+    .form-control-file {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 0.75rem;
+        border-radius: var(--border-radius-sm);
+        margin-bottom: 1rem;
+        min-height: 44px; /* Touch-friendly */
+    }
+    
+    .form-label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+    }
+    
+    .form-text {
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+    }
+    
+    /* Input groups */
+    .input-group {
+        margin-bottom: 1rem;
+    }
+    
+    .input-group-text {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+        border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+    }
+    
+    /* Modal improvements for mobile */
+    .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+    
+    .modal-header {
+        padding: 1rem 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .modal-body {
+        padding: 1rem 0.75rem;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    
+    .modal-footer {
+        padding: 0.75rem;
+        border-top: 1px solid var(--border-color);
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .modal-title {
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+    
+    /* Alert improvements */
+    .alert {
+        padding: 0.875rem 0.75rem;
+        margin-bottom: 1rem;
+        border-radius: var(--border-radius-sm);
+        font-size: 0.9rem;
+    }
+    
+    .alert-dismissible .btn-close {
+        padding: 0.5rem;
+    }
+    
+    /* Progress and loading states */
+    .progress {
+        height: 8px;
+        border-radius: var(--border-radius-sm);
+        margin-bottom: 1rem;
+    }
+    
+    /* Breadcrumb improvements */
+    .breadcrumb {
+        padding: 0.5rem 0;
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+        background: transparent;
+    }
+    
+    .breadcrumb-item + .breadcrumb-item::before {
+        content: "›";
+        font-size: 1.1rem;
     }
 }
 
