@@ -13,7 +13,7 @@
 
     <!-- Menu Items -->
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-      <ul class="navbar-nav d-flex flex-row flex-wrap text-center">
+      <ul class="navbar-nav text-center">
         <?php
           $currentPage = basename($_SERVER['PHP_SELF']);
           function isActive($page) {

@@ -74,7 +74,7 @@
             </button>
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav d-flex flex-row flex-wrap text-center">
+                <ul class="navbar-nav text-center">
                     <li class="nav-item">
                         <a class="nav-link active" href="#grid-test">
                             <i class="bi bi-grid-3x3-gap-fill me-2"></i> Grid Test
@@ -93,6 +93,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#buttons-test">
                             <i class="bi bi-ui-checks-grid me-2"></i> Buttons Test
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#navbar-test">
+                            <i class="bi bi-menu-button-wide me-2"></i> Navbar Test
                         </a>
                     </li>
                 </ul>
@@ -254,6 +259,46 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <!-- Navbar Test Section -->
+        <div id="navbar-test" class="test-section">
+            <h2>Navigation Responsive Test</h2>
+            <div class="alert alert-info">
+                <h5>Navbar Behavior Testing:</h5>
+                <ul class="mb-0">
+                    <li><strong>Desktop (≥992px):</strong> Horizontal menu with all items visible</li>
+                    <li><strong>Tablet (768px-991px):</strong> Hamburger menu appears, items collapse</li>
+                    <li><strong>Mobile (≤767px):</strong> Full hamburger menu with vertical stacking</li>
+                    <li><strong>Touch Devices:</strong> 44px minimum touch targets for accessibility</li>
+                </ul>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Current Behavior:</h5>
+                    <div class="device-preview">
+                        <strong>Screen Size Detection:</strong>
+                        <div class="breakpoint-indicator position-static mt-2">
+                            <span class="d-block d-sm-none">XS: Menu should be collapsed with hamburger</span>
+                            <span class="d-none d-sm-block d-md-none">SM: Menu should be collapsed with hamburger</span>
+                            <span class="d-none d-md-block d-lg-none">MD: Menu should be collapsed with hamburger</span>
+                            <span class="d-none d-lg-block d-xl-none">LG: Menu should be horizontal</span>
+                            <span class="d-none d-xl-block">XL+: Menu should be horizontal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Test Instructions:</h5>
+                    <ol>
+                        <li>Resize your browser window to different widths</li>
+                        <li>At ≤991px, hamburger menu should appear</li>
+                        <li>Click hamburger to toggle menu visibility</li>
+                        <li>Menu items should stack vertically when collapsed</li>
+                        <li>Test on actual mobile devices for touch interaction</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
