@@ -173,16 +173,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .back-link {
-            color: var(--text-secondary);
+            color: #6c757d !important;
             text-decoration: none;
             font-weight: 500;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             display: inline-block;
             margin-bottom: 1rem;
         }
 
         .back-link:hover {
-            color: var(--primary-color);
+            color: #2e7d32 !important;
             transform: translateX(-5px);
         }
 
@@ -208,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .login-title {
-            color: var(--primary-dark);
+            color: #1b5e20 !important;
             font-weight: 800;
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
@@ -217,7 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .login-subtitle {
-            color: var(--text-secondary);
+            color: #6c757d !important;
             font-size: 1.1rem;
             font-weight: 500;
             margin-bottom: 0;
@@ -233,8 +233,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .login-card .card-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            color: var(--text-light);
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white !important;
             padding: 2rem 2rem 1.5rem;
             text-align: center;
             border: none;
@@ -251,12 +251,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center;
             justify-content: center;
             text-align: center;
+            color: white !important;
         }
 
         .login-card .card-header p {
             text-align: center;
             margin: 0;
             opacity: 0.9;
+            color: white !important;
         }
 
         .login-card .card-body {
@@ -264,6 +266,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: flex;
             flex-direction: column;
             align-items: stretch;
+            background: white;
+            color: #212529;
         }
 
         .form-group {
@@ -275,7 +279,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .form-label {
             font-weight: 600;
-            color: var(--text-primary);
+            color: #212529 !important;
             margin-bottom: 0.75rem;
             font-size: 0.95rem;
             display: flex;
@@ -284,21 +288,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .form-control {
-            border-radius: var(--border-radius-sm);
-            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
             padding: 1rem;
             font-size: 1rem;
-            transition: var(--transition);
-            background-color: var(--bg-primary);
+            transition: all 0.3s ease;
+            background-color: white;
+            color: #212529;
             width: 100%;
             box-sizing: border-box;
         }
 
         .form-control:focus {
-            border-color: var(--primary-color);
+            border-color: #2e7d32;
             box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
             outline: none;
             transform: translateY(-1px);
+            background-color: white;
+            color: #212529;
         }
 
         .password-input-group {
@@ -319,44 +326,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             transform: translateY(-50%);
             background: none;
             border: none;
-            color: var(--text-secondary);
+            color: #6c757d;
             cursor: pointer;
             padding: 0.5rem;
             border-radius: 50%;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .password-toggle:hover {
-            color: var(--primary-color);
+            color: #2e7d32;
             background: rgba(46, 125, 50, 0.1);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
             border: none;
             padding: 1rem 2rem;
             font-weight: 600;
             font-size: 1.1rem;
-            border-radius: var(--border-radius-sm);
-            transition: var(--transition);
+            border-radius: 8px;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
             margin: 0 auto;
+            color: white;
         }
 
         .btn-primary:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            color: white;
         }
 
         .login-footer {
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid #dee2e6;
             padding-top: 1.5rem;
             text-align: center;
             margin-top: 1rem;
@@ -367,19 +376,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center;
             justify-content: center;
             margin: 0;
+            color: #6c757d !important;
         }
 
         .alert {
-            border-radius: var(--border-radius-sm);
+            border-radius: 8px;
             border: none;
             padding: 1rem 1.5rem;
             font-weight: 500;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .alert-danger {
             background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
-            color: #721c24;
+            color: #721c24 !important;
             border-left: 4px solid #dc3545;
         }
 

@@ -59,26 +59,40 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         .dashboard-container {
             min-height: 100vh;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #212529;
         }
         
         .dashboard-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            color: white;
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white !important;
             padding: 2rem 0;
             margin-bottom: 2rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         
+        .dashboard-header h1,
+        .dashboard-header p {
+            color: white !important;
+        }
+        
         .welcome-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
             padding: 2.5rem;
             margin-bottom: 2rem;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
+            color: #212529;
+        }
+        
+        .welcome-card h2,
+        .welcome-card p,
+        .welcome-card small,
+        .welcome-card div {
+            color: #212529 !important;
         }
         
         .welcome-card::before {
@@ -107,6 +121,12 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            color: #212529;
+        }
+        
+        .stat-card .stat-number,
+        .stat-card .stat-label {
+            color: #212529 !important;
         }
         
         .stat-card::before {
@@ -165,6 +185,12 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
             padding: 2rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             margin-bottom: 2rem;
+            color: #212529;
+        }
+        
+        .quick-actions h4,
+        .quick-actions p {
+            color: #212529 !important;
         }
         
         .quick-actions-grid {
@@ -176,11 +202,11 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         
         .quick-action {
             background: white;
-            border: 2px solid var(--border-color);
+            border: 2px solid #dee2e6;
             border-radius: 12px;
             padding: 2rem 1.5rem;
             text-decoration: none;
-            color: var(--text-primary);
+            color: #212529 !important;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
@@ -188,6 +214,11 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+        
+        .quick-action .quick-action-title,
+        .quick-action .quick-action-desc {
+            color: #212529 !important;
         }
         
         .quick-action::before {
@@ -245,6 +276,20 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
             padding: 2rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             margin-bottom: 2rem;
+            color: #212529;
+        }
+        
+        .recent-activity h5,
+        .recent-activity p {
+            color: #212529 !important;
+        }
+        
+        .activity-title {
+            color: #212529 !important;
+        }
+        
+        .activity-meta {
+            color: #6c757d !important;
         }
         
         .activity-item {
@@ -289,6 +334,12 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
             border-radius: 16px;
             padding: 2rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            color: #212529;
+        }
+        
+        .management-tools h4,
+        .management-tools p {
+            color: #212529 !important;
         }
         
         .tool-grid {
@@ -300,11 +351,11 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         
         .tool-btn {
             background: white;
-            border: 2px solid var(--border-color);
+            border: 2px solid #dee2e6;
             border-radius: 10px;
             padding: 1rem;
             text-decoration: none;
-            color: var(--text-primary);
+            color: #212529 !important;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -313,9 +364,9 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         }
         
         .tool-btn:hover {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
+            background: #2e7d32;
+            color: white !important;
+            border-color: #2e7d32;
             transform: translateY(-2px);
             text-decoration: none;
         }
@@ -394,8 +445,8 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
                             <i class="bi bi-house me-2"></i>View Site
                         </a>
                         <a href="logout.php" class="btn btn-light btn-sm">
-                            <i class="bi bi-box-arrow-right me-2"></i>Logout
-                        </a>
+                    <i class="bi bi-box-arrow-right me-2"></i>Logout
+                </a>
                     </div>
                 </div>
             </div>
@@ -462,8 +513,8 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
                 </div>
                 <div class="stat-number"><?= number_format($imageCount) ?></div>
                 <div class="stat-label">Images</div>
-            </div>
-            
+        </div>
+
             <div class="stat-card" style="--stat-color: #f44336; --stat-bg: rgba(244, 67, 54, 0.1);">
                 <div class="stat-icon">
                     <i class="bi bi-palette"></i>
@@ -503,34 +554,34 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
                 </div>
             </div>
             
-            <div class="quick-actions-grid">
+                        <div class="quick-actions-grid">
                 <a href="manage_species.php" class="quick-action" style="--action-color: #2e7d32; --action-bg: rgba(46, 125, 50, 0.1);">
                     <div class="quick-action-icon">
-                        <i class="bi bi-bug"></i>
+                                <i class="bi bi-bug"></i>
                     </div>
                     <div class="quick-action-title">Manage Species</div>
                     <div class="quick-action-desc">Add, edit, or delete insect species</div>
-                </a>
+                            </a>
                 
                 <a href="manage_genes.php" class="quick-action" style="--action-color: #2196f3; --action-bg: rgba(33, 150, 243, 0.1);">
                     <div class="quick-action-icon">
-                        <i class="bi bi-diagram-3"></i>
+                                <i class="bi bi-diagram-3"></i>
                     </div>
                     <div class="quick-action-title">Manage Genes</div>
                     <div class="quick-action-desc">Organize gene data and relationships</div>
-                </a>
+                            </a>
                 
                 <a href="manage_subfamilies.php" class="quick-action" style="--action-color: #ff9800; --action-bg: rgba(255, 152, 0, 0.1);">
                     <div class="quick-action-icon">
-                        <i class="bi bi-collection"></i>
+                                <i class="bi bi-collection"></i>
                     </div>
                     <div class="quick-action-title">Manage Subfamilies</div>
                     <div class="quick-action-desc">Organize taxonomic classifications</div>
-                </a>
+                            </a>
                 
                 <a href="upload_images.php" class="quick-action" style="--action-color: #9c27b0; --action-bg: rgba(156, 39, 176, 0.1);">
                     <div class="quick-action-icon">
-                        <i class="bi bi-upload"></i>
+                                <i class="bi bi-upload"></i>
                     </div>
                     <div class="quick-action-title">Upload Images</div>
                     <div class="quick-action-desc">Add new images to the database</div>
@@ -540,8 +591,8 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
 
         <!-- Recent Activities -->
         <div class="recent-activity">
-            <div class="row">
-                <div class="col-lg-6 mb-4">
+        <div class="row">
+            <div class="col-lg-6 mb-4">
                     <div class="d-flex align-items-center mb-3">
                         <div class="me-3">
                             <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #2e7d32, #4caf50); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
@@ -554,9 +605,9 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
                         </div>
                     </div>
                     
-                    <?php if (count($recentSpecies) > 0): ?>
+                        <?php if (count($recentSpecies) > 0): ?>
                         <div>
-                            <?php foreach ($recentSpecies as $species): ?>
+                                <?php foreach ($recentSpecies as $species): ?>
                                 <div class="activity-item">
                                     <div class="activity-icon">
                                         <i class="bi bi-bug"></i>
@@ -564,8 +615,8 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
                                     <div class="activity-content">
                                         <div class="activity-title"><?= htmlspecialchars($species['name']) ?></div>
                                         <div class="activity-meta">
-                                            <i class="bi bi-geo-alt me-1"></i>
-                                            <?= htmlspecialchars($species['location'] ?? 'Location not specified') ?>
+                                                <i class="bi bi-geo-alt me-1"></i>
+                                                <?= htmlspecialchars($species['location'] ?? 'Location not specified') ?>
                                         </div>
                                     </div>
                                     <div>
@@ -573,20 +624,20 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
                                             <?= htmlspecialchars($species['status'] ?? 'N/A') ?>
                                         </span>
                                     </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php else: ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php else: ?>
                         <div class="text-center py-4">
                             <div style="width: 60px; height: 60px; background: rgba(46, 125, 50, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
                                 <i class="bi bi-bug" style="font-size: 1.5rem; color: #2e7d32;"></i>
                             </div>
                             <p style="color: var(--text-secondary); margin: 0;">No species added yet.</p>
                         </div>
-                    <?php endif; ?>
-                </div>
+                        <?php endif; ?>
+            </div>
 
-                <div class="col-lg-6 mb-4">
+            <div class="col-lg-6 mb-4">
                     <div class="d-flex align-items-center mb-3">
                         <div class="me-3">
                             <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #9c27b0, #e91e63); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
@@ -599,32 +650,32 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
                         </div>
                     </div>
                     
-                    <?php if (count($recentImages) > 0): ?>
-                        <div class="row g-2">
-                            <?php foreach ($recentImages as $image): ?>
-                                <div class="col-6">
+                        <?php if (count($recentImages) > 0): ?>
+                            <div class="row g-2">
+                                <?php foreach ($recentImages as $image): ?>
+                                    <div class="col-6">
                                     <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05);">
-                                        <img src="../<?= htmlspecialchars($image['url']) ?>" 
-                                             alt="<?= htmlspecialchars($image['caption'] ?? 'Image') ?>"
+                                            <img src="../<?= htmlspecialchars($image['url']) ?>" 
+                                                 alt="<?= htmlspecialchars($image['caption'] ?? 'Image') ?>"
                                              style="width: 100%; height: 80px; object-fit: cover;">
                                         <div style="padding: 0.5rem;">
                                             <small style="color: var(--text-secondary); font-size: 0.75rem; line-height: 1.3;">
                                                 <?= htmlspecialchars(substr($image['caption'] ?? 'No caption', 0, 30)) ?>
                                                 <?= strlen($image['caption'] ?? 'No caption') > 30 ? '...' : '' ?>
-                                            </small>
+                                                </small>
+                                        </div>
                                         </div>
                                     </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php else: ?>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php else: ?>
                         <div class="text-center py-4">
                             <div style="width: 60px; height: 60px; background: rgba(156, 39, 176, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
                                 <i class="bi bi-image" style="font-size: 1.5rem; color: #9c27b0;"></i>
                             </div>
                             <p style="color: var(--text-secondary); margin: 0;">No images uploaded yet.</p>
                         </div>
-                    <?php endif; ?>
+                        <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -640,8 +691,8 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
                 <div>
                     <h4 class="mb-1" style="font-weight: 700; color: var(--text-primary);">All Management Tools</h4>
                     <p class="mb-0" style="color: var(--text-secondary);">Complete set of administrative tools</p>
-                </div>
-            </div>
+                                </div>
+                            </div>
             
             <div class="tool-grid">
                 <a href="manage_background.php" class="tool-btn">
@@ -654,28 +705,28 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
                 <a href="manage_news.php" class="tool-btn">
                     <div class="tool-icon">
                         <i class="bi bi-newspaper"></i>
-                    </div>
+                                </div>
                     <span>Manage News</span>
                 </a>
                 
                 <a href="manage_literature.php" class="tool-btn">
                     <div class="tool-icon">
                         <i class="bi bi-journal-text"></i>
-                    </div>
+                                </div>
                     <span>Manage Literature</span>
                 </a>
                 
                 <a href="manage_picture.php" class="tool-btn">
                     <div class="tool-icon">
                         <i class="bi bi-image"></i>
-                    </div>
+                                </div>
                     <span>Manage Pictures</span>
                 </a>
                 
                 <a href="admin_view_contacts.php" class="tool-btn">
                     <div class="tool-icon">
                         <i class="bi bi-envelope"></i>
-                    </div>
+                                </div>
                     <span>View Contacts</span>
                 </a>
                 
