@@ -79,9 +79,9 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
@@ -107,15 +107,15 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
             margin-bottom: 2rem;
         }
         
         .stat-card {
             background: white;
-            border-radius: 16px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 1.5rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -151,23 +151,23 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         }
         
         .stat-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
             background: var(--stat-bg, rgba(46, 125, 50, 0.1));
             color: var(--stat-color, var(--primary-color));
         }
         
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
             line-height: 1;
         }
         
@@ -182,9 +182,9 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         .quick-actions {
             background: white;
             border-radius: 16px;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: #212529;
         }
         
@@ -195,16 +195,16 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         
         .quick-actions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
         }
         
         .quick-action {
             background: white;
             border: 2px solid #dee2e6;
             border-radius: 12px;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1rem;
             text-decoration: none;
             color: #212529 !important;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -246,26 +246,26 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         }
         
         .quick-action-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
             background: var(--action-bg, rgba(46, 125, 50, 0.1));
             color: var(--action-color, var(--primary-color));
         }
         
         .quick-action-title {
             font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
         }
         
         .quick-action-desc {
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
             line-height: 1.4;
         }
@@ -273,9 +273,9 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         .recent-activity {
             background: white;
             border-radius: 16px;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: #212529;
         }
         
@@ -332,7 +332,7 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         .management-tools {
             background: white;
             border-radius: 16px;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             color: #212529;
         }
@@ -344,23 +344,24 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         
         .tool-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
         }
         
         .tool-btn {
             background: white;
             border: 2px solid #dee2e6;
-            border-radius: 10px;
-            padding: 1rem;
+            border-radius: 8px;
+            padding: 0.75rem;
             text-decoration: none;
             color: #212529 !important;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
             font-weight: 500;
+            font-size: 0.9rem;
         }
         
         .tool-btn:hover {
@@ -372,15 +373,15 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
         }
         
         .tool-icon {
-            width: 35px;
-            height: 35px;
+            width: 28px;
+            height: 28px;
             border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(46, 125, 50, 0.1);
             color: var(--primary-color);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .tool-btn:hover .tool-icon {
@@ -663,7 +664,7 @@ $recentImages = $pdo->query("SELECT * FROM images ORDER BY id DESC LIMIT 5")->fe
                                                 <?= htmlspecialchars(substr($image['caption'] ?? 'No caption', 0, 30)) ?>
                                                 <?= strlen($image['caption'] ?? 'No caption') > 30 ? '...' : '' ?>
                                                 </small>
-                                        </div>
+                                            </div>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
