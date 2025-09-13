@@ -208,34 +208,31 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
     <div class="container mt-5">
         <h2 class="section-title observe-slide-left">Quick Stats</h2>
         <div class="row text-center justify-content-center">
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
-                <div class="card-custom p-3 observe-scale" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-                    <div class="stat-icon mb-2">
-                        <i class="bi bi-bug display-6 text-success" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
+            <div class="col-auto mb-2">
+                <div class="card-custom p-2 observe-scale" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); min-width: 120px;">
+                    <div class="stat-icon mb-1">
+                        <i class="bi bi-bug fs-4 text-success"></i>
                     </div>
-                    <h5 class="text-dark mb-1">Total Species</h5>
-                    <p class="fs-3 fw-bold text-success mb-1"><?= number_format($speciesCount) ?></p>
-                    <small class="text-muted">Documented Species</small>
+                    <h6 class="text-dark mb-1 small">Species</h6>
+                    <p class="fs-5 fw-bold text-success mb-0"><?= number_format($speciesCount) ?></p>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
-                <div class="card-custom p-3 observe-scale" style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);">
-                    <div class="stat-icon mb-2">
-                        <i class="bi bi-diagram-3 display-6 text-info" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
+            <div class="col-auto mb-2">
+                <div class="card-custom p-2 observe-scale" style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%); min-width: 120px;">
+                    <div class="stat-icon mb-1">
+                        <i class="bi bi-diagram-3 fs-4 text-info"></i>
                     </div>
-                    <h5 class="text-dark mb-1">Genes</h5>
-                    <p class="fs-3 fw-bold text-info mb-1"><?= number_format($geneCount) ?></p>
-                    <small class="text-muted">Genetic Sequences</small>
+                    <h6 class="text-dark mb-1 small">Genes</h6>
+                    <p class="fs-5 fw-bold text-info mb-0"><?= number_format($geneCount) ?></p>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
-                <div class="card-custom p-3 observe-scale" style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);">
-                    <div class="stat-icon mb-2">
-                        <i class="bi bi-collection display-6 text-warning" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
+            <div class="col-auto mb-2">
+                <div class="card-custom p-2 observe-scale" style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); min-width: 120px;">
+                    <div class="stat-icon mb-1">
+                        <i class="bi bi-collection fs-4 text-warning"></i>
                     </div>
-                    <h5 class="text-dark mb-1">Subfamilies</h5>
-                    <p class="fs-3 fw-bold text-warning mb-1"><?= number_format($subfamilyCount) ?></p>
-                    <small class="text-muted">Taxonomic Groups</small>
+                    <h6 class="text-dark mb-1 small">Subfamilies</h6>
+                    <p class="fs-5 fw-bold text-warning mb-0"><?= number_format($subfamilyCount) ?></p>
                 </div>
             </div>
         </div>
@@ -243,19 +240,19 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
         <div class="potd-container">
             <h2 class="section-title observe-slide-right">Picture of the Day</h2>
             <?php if ($pic): ?>
-            <div class="card-custom observe-fade-in">
+            <div class="card-custom observe-fade-in" style="max-width: 400px; margin: 0 auto;">
                 <a href="<?= htmlspecialchars($pic['url'] ?? '') ?>" class="glightbox" data-title="<?= htmlspecialchars($pic['caption'] ?? '') ?>">
-                    <img src="<?= htmlspecialchars($pic['url'] ?? '') ?>" class="img-fluid potd-image lazy-image" alt="Picture of the Day" loading="lazy">
+                    <img src="<?= htmlspecialchars($pic['url'] ?? '') ?>" class="img-fluid potd-image lazy-image" alt="Picture of the Day" loading="lazy" style="max-height: 200px; object-fit: cover;">
                 </a>
-                <div class="p-3">
-                    <p><?= htmlspecialchars($pic['caption'] ?? '') ?></p>
+                <div class="p-2">
+                    <p class="small mb-1"><?= htmlspecialchars($pic['caption'] ?? '') ?></p>
                     <?php if (isset($_SESSION['admin_user'])): ?>
-                    <a href="admin/manage_picture.php" class="btn btn-sm btn-outline-primary">Manage Pictures</a>
+                    <a href="admin/manage_picture.php" class="btn btn-sm btn-outline-primary">Manage</a>
                     <?php endif; ?>
                 </div>
             </div>
             <?php else: ?>
-            <p class="text-white">No image uploaded yet.</p>
+            <p class="text-white small">No image uploaded yet.</p>
             <?php if (isset($_SESSION['admin_user'])): ?>
             <a href="admin/manage_picture.php" class="btn btn-sm btn-light">Upload Picture</a>
             <?php endif; ?>
@@ -267,21 +264,21 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
         <div class="news-infinite-container">
             <div class="row justify-content-center">
                 <?php foreach (array_slice($news, 0, 6) as $index => $n): ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <div class="card-custom p-3 news-item" style="animation-delay: <?= ($index * 0.1) ?>s; height: 100%;">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                    <div class="card-custom p-2 news-item" style="animation-delay: <?= ($index * 0.1) ?>s; height: 100%;">
                         <div class="d-flex align-items-start">
-                            <div class="news-icon me-3">
-                                <i class="bi bi-newspaper text-primary" style="font-size: 1.5rem;"></i>
+                            <div class="news-icon me-2">
+                                <i class="bi bi-newspaper text-primary fs-6"></i>
                             </div>
                             <div class="flex-grow-1">
-                                <h6 class="mb-2">
+                                <h6 class="mb-1 small">
                                     <a href="<?= htmlspecialchars($n['link'] ?? '') ?>" target="_blank" class="text-decoration-none text-dark">
-                                        <?= htmlspecialchars($n['title'] ?? '') ?>
+                                        <?= htmlspecialchars(substr($n['title'] ?? '', 0, 50)) ?><?= strlen($n['title'] ?? '') > 50 ? '...' : '' ?>
                                     </a>
                                 </h6>
                                 <small class="text-muted">
                                     <i class="bi bi-calendar3 me-1"></i>
-                                    <?= date('M d, Y', strtotime($n['created_at'])) ?>
+                                    <?= date('M d', strtotime($n['created_at'])) ?>
                                 </small>
                             </div>
                         </div>
