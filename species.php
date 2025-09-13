@@ -45,7 +45,7 @@ if ($species_id) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?= $species ? htmlspecialchars($species['name']) : 'Not Found' ?> - InsectaBase</title>
+    <title><?= $species ? htmlspecialchars($species['name'] ?? '') : 'Not Found' ?> - InsectaBase</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -121,7 +121,7 @@ if ($species_id) {
         <?php if ($species): // CHECK if species exists BEFORE trying to display it ?>
 
             <div class="species-header text-center observe-fade-in">
-                <h1><i><?= htmlspecialchars($species['name']) ?></i></h1>
+                <h1><i><?= htmlspecialchars($species['name'] ?? '') ?></i></h1>
                 <p class="lead">Detailed Profile</p>
             </div>
 
@@ -131,7 +131,7 @@ if ($species_id) {
                 <div class="col-md-5 text-center">
                     <a href="<?= htmlspecialchars($species['image_url'] ?? 'assets/img/placeholder.png') ?>" class="glightbox" data-gallery="species-gallery">
                         <img src="<?= htmlspecialchars($species['image_url'] ?? 'assets/img/placeholder.png') ?>" 
-                             alt="<?= htmlspecialchars($species['name']) ?>" 
+                             alt="<?= htmlspecialchars($species['name'] ?? '') ?>" 
                              class="species-image lazy-image" 
                              loading="lazy"
                              decoding="async">
@@ -150,20 +150,20 @@ if ($species_id) {
 
                         <?php if (!empty($species['description'])): ?>
                             <h4 class="mt-4">Description</h4>
-                            <p><?= nl2br(htmlspecialchars($species['description'])) ?></p>
+                            <p><?= nl2br(htmlspecialchars($species['description'] ?? '')) ?></p>
                         <?php endif; ?>
 
                         <?php if (!empty($species['diagnosis'])): ?>
                             <h4 class="mt-4">Diagnosis</h4>
-                            <p><?= nl2br(htmlspecialchars($species['diagnosis'])) ?></p>
+                            <p><?= nl2br(htmlspecialchars($species['diagnosis'] ?? '')) ?></p>
                         <?php endif; ?>
 
                         <div class="mt-4">
                             <?php if (!empty($species['pdf_url'])): ?>
-                                <a href="<?= htmlspecialchars($species['pdf_url']) ?>" class="btn btn-danger" target="_blank"><i class="bi bi-file-pdf"></i> View PDF</a>
+                                <a href="<?= htmlspecialchars($species['pdf_url'] ?? '') ?>" class="btn btn-danger" target="_blank"><i class="bi bi-file-pdf"></i> View PDF</a>
                             <?php endif; ?>
                             <?php if (!empty($species['map_link'])): ?>
-                                 <a href="<?= htmlspecialchars($species['map_link']) ?>" class="btn btn-info" target="_blank"><i class="bi bi-geo-alt-fill"></i> View Map</a>
+                                 <a href="<?= htmlspecialchars($species['map_link'] ?? '') ?>" class="btn btn-info" target="_blank"><i class="bi bi-geo-alt-fill"></i> View Map</a>
                             <?php endif; ?>
                         </div>
                     </div>

@@ -93,20 +93,20 @@ $species_list = $pdo->query("SELECT * FROM species WHERE latitude IS NOT NULL AN
                                     <tr>
                                         <td>
                                             <a href="species.php?id=<?= $species['id'] ?>">
-                                                <?= htmlspecialchars($species['name']) ?>
+                                                <?= htmlspecialchars($species['name'] ?? '') ?>
                                             </a>
                                         </td>
                                         <td class="location-link"
                                             data-lat="<?= $species['latitude'] ?>"
                                             data-lon="<?= $species['longitude'] ?>">
-                                            <?= htmlspecialchars($species['location']) ?>
+                                            <?= htmlspecialchars($species['location'] ?? '') ?>
                                         </td>
-                                        <td><?= htmlspecialchars($species['status']) ?></td>
-                                        <td class="text-truncate" title="<?= htmlspecialchars($species['description']) ?>">
-                                            <?= htmlspecialchars($species['description']) ?>
+                                        <td><?= htmlspecialchars($species['status'] ?? '') ?></td>
+                                        <td class="text-truncate" title="<?= htmlspecialchars($species['description'] ?? '') ?>">
+                                            <?= htmlspecialchars($species['description'] ?? '') ?>
                                         </td>
-                                        <td class="text-truncate" title="<?= htmlspecialchars($species['diagnosis']) ?>">
-                                            <?= htmlspecialchars($species['diagnosis']) ?>
+                                        <td class="text-truncate" title="<?= htmlspecialchars($species['diagnosis'] ?? '') ?>">
+                                            <?= htmlspecialchars($species['diagnosis'] ?? '') ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

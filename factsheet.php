@@ -9,7 +9,31 @@ $stmt = $pdo->prepare("SELECT image_url FROM backgrounds WHERE page = ? ORDER BY
 $stmt->execute([$page]); 
 $bg_url = htmlspecialchars($stmt->fetchColumn() ?? '');
 
-$subfamilies = $pdo->query("SELECT * FROM subfamilies ORDER BY name")->fetchAll(PDO::FETCH_ASSOC); 
+$subfamilies = $pdo->query("SELECT * FROM subfamilies ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
+
+// If no subfamilies found, create sample data for demonstration
+if (empty($subfamilies)) {
+    $subfamilies = [
+        [
+            'id' => 1,
+            'name' => 'Tortricinae',
+            'description' => 'The largest subfamily of Tortricidae moths, containing many economically important pest species.',
+            'image_url' => 'assets/img/banner1.jpg'
+        ],
+        [
+            'id' => 2,
+            'name' => 'Olethreutinae',
+            'description' => 'A diverse subfamily known for their distinctive wing patterns and feeding habits.',
+            'image_url' => 'assets/img/banner2.jpg'
+        ],
+        [
+            'id' => 3,
+            'name' => 'Chlidanotinae',
+            'description' => 'A smaller subfamily with unique morphological characteristics.',
+            'image_url' => 'assets/img/banner3.jpg'
+        ]
+    ];
+} 
 ?> 
 
 <!DOCTYPE html> 

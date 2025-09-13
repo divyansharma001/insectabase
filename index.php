@@ -207,8 +207,8 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
 
     <div class="container mt-5">
         <h2 class="section-title observe-slide-left">Quick Stats</h2>
-        <div class="row text-center">
-            <div class="col-md-4">
+        <div class="row text-center justify-content-center">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card-custom p-4 observe-scale" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
                     <div class="stat-icon mb-3">
                         <i class="bi bi-bug display-4 text-success" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
@@ -218,7 +218,7 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
                     <small class="text-muted">Documented Species</small>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card-custom p-4 observe-scale" style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);">
                     <div class="stat-icon mb-3">
                         <i class="bi bi-diagram-3 display-4 text-info" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
@@ -228,7 +228,7 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
                     <small class="text-muted">Genetic Sequences</small>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card-custom p-4 observe-scale" style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);">
                     <div class="stat-icon mb-3">
                         <i class="bi bi-collection display-4 text-warning" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
@@ -244,11 +244,11 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
             <h2 class="section-title observe-slide-right">Picture of the Day</h2>
             <?php if ($pic): ?>
             <div class="card-custom observe-fade-in">
-                <a href="<?= htmlspecialchars($pic['url']) ?>" class="glightbox" data-title="<?= htmlspecialchars($pic['caption']) ?>">
-                    <img src="<?= htmlspecialchars($pic['url']) ?>" class="img-fluid potd-image lazy-image" alt="Picture of the Day" loading="lazy">
+                <a href="<?= htmlspecialchars($pic['url'] ?? '') ?>" class="glightbox" data-title="<?= htmlspecialchars($pic['caption'] ?? '') ?>">
+                    <img src="<?= htmlspecialchars($pic['url'] ?? '') ?>" class="img-fluid potd-image lazy-image" alt="Picture of the Day" loading="lazy">
                 </a>
                 <div class="p-3">
-                    <p><?= htmlspecialchars($pic['caption']) ?></p>
+                    <p><?= htmlspecialchars($pic['caption'] ?? '') ?></p>
                     <?php if (isset($_SESSION['admin_user'])): ?>
                     <a href="admin/manage_picture.php" class="btn btn-sm btn-outline-primary">Manage Pictures</a>
                     <?php endif; ?>
@@ -265,9 +265,9 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
         <h2 class="section-title observe-fade-in">Latest Research & News</h2>
         <?php if ($news): ?>
         <div class="news-infinite-container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <?php foreach (array_slice($news, 0, 6) as $index => $n): ?>
-                <div class="col-md-6 mb-3">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                     <div class="card-custom p-3 news-item" style="animation-delay: <?= ($index * 0.1) ?>s; height: 100%;">
                         <div class="d-flex align-items-start">
                             <div class="news-icon me-3">
@@ -275,8 +275,8 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
                             </div>
                             <div class="flex-grow-1">
                                 <h6 class="mb-2">
-                                    <a href="<?= htmlspecialchars($n['link']) ?>" target="_blank" class="text-decoration-none text-dark">
-                                        <?= htmlspecialchars($n['title']) ?>
+                                    <a href="<?= htmlspecialchars($n['link'] ?? '') ?>" target="_blank" class="text-decoration-none text-dark">
+                                        <?= htmlspecialchars($n['title'] ?? '') ?>
                                     </a>
                                 </h6>
                                 <small class="text-muted">

@@ -65,16 +65,20 @@ $bg = $stmt->fetchColumn();
 <div class="container my-5">
   <h2 class="mb-4 text-center">About InsectaBase</h2>
 
-  <div class="row mb-5 align-items-center">
-    <div class="col-md-6 mb-4 mb-md-0">
-      <img src="assets/img/about_insects.jpg" class="img-fluid rounded shadow" alt="Insect Research Image">
-    </div>
-    <div class="col-md-6">
-      <h4>🎯 Our Mission</h4>
-      <p>InsectaBase was created with a vision to increase awareness about the diverse world of insects, focusing on their species, genetic structure, and brain morphology. Our mission is to provide students, researchers, and enthusiasts with reliable, visual, and structured data about insects.</p>
+  <div class="row mb-5 align-items-center justify-content-center">
+    <div class="col-lg-8">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="assets/img/about_insects.jpg" class="img-fluid rounded shadow" alt="Insect Research Image">
+        </div>
+        <div class="col-md-6">
+          <h4>🎯 Our Mission</h4>
+          <p>InsectaBase was created with a vision to increase awareness about the diverse world of insects, focusing on their species, genetic structure, and brain morphology. Our mission is to provide students, researchers, and enthusiasts with reliable, visual, and structured data about insects.</p>
 
-      <h4 class="mt-4">🔬 Our Vision</h4>
-      <p>We envision InsectaBase becoming a centralized and authoritative source for insect classification, biology, and taxonomy. The platform bridges science and technology to promote deeper understanding and conservation of insect biodiversity.</p>
+          <h4 class="mt-4">🔬 Our Vision</h4>
+          <p>We envision InsectaBase becoming a centralized and authoritative source for insect classification, biology, and taxonomy. The platform bridges science and technology to promote deeper understanding and conservation of insect biodiversity.</p>
+        </div>
+      </div>
     </div>
   </div>
 
