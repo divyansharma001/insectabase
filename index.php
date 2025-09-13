@@ -208,33 +208,33 @@ $news = $pdo->query("SELECT * FROM news ORDER BY created_at DESC LIMIT 20")->fet
     <div class="container mt-5">
         <h2 class="section-title observe-slide-left">Quick Stats</h2>
         <div class="row text-center justify-content-center">
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card-custom p-4 observe-scale" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-                    <div class="stat-icon mb-3">
-                        <i class="bi bi-bug display-4 text-success" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                <div class="card-custom p-3 observe-scale" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                    <div class="stat-icon mb-2">
+                        <i class="bi bi-bug display-6 text-success" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
                     </div>
-                    <h4 class="text-dark mb-2">Total Species</h4>
-                    <p class="fs-2 fw-bold text-success mb-0"><?= number_format($speciesCount) ?></p>
+                    <h5 class="text-dark mb-1">Total Species</h5>
+                    <p class="fs-3 fw-bold text-success mb-1"><?= number_format($speciesCount) ?></p>
                     <small class="text-muted">Documented Species</small>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card-custom p-4 observe-scale" style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);">
-                    <div class="stat-icon mb-3">
-                        <i class="bi bi-diagram-3 display-4 text-info" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                <div class="card-custom p-3 observe-scale" style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);">
+                    <div class="stat-icon mb-2">
+                        <i class="bi bi-diagram-3 display-6 text-info" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
                     </div>
-                    <h4 class="text-dark mb-2">Genes</h4>
-                    <p class="fs-2 fw-bold text-info mb-0"><?= number_format($geneCount) ?></p>
+                    <h5 class="text-dark mb-1">Genes</h5>
+                    <p class="fs-3 fw-bold text-info mb-1"><?= number_format($geneCount) ?></p>
                     <small class="text-muted">Genetic Sequences</small>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card-custom p-4 observe-scale" style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);">
-                    <div class="stat-icon mb-3">
-                        <i class="bi bi-collection display-4 text-warning" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                <div class="card-custom p-3 observe-scale" style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);">
+                    <div class="stat-icon mb-2">
+                        <i class="bi bi-collection display-6 text-warning" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));"></i>
                     </div>
-                    <h4 class="text-dark mb-2">Subfamilies</h4>
-                    <p class="fs-2 fw-bold text-warning mb-0"><?= number_format($subfamilyCount) ?></p>
+                    <h5 class="text-dark mb-1">Subfamilies</h5>
+                    <p class="fs-3 fw-bold text-warning mb-1"><?= number_format($subfamilyCount) ?></p>
                     <small class="text-muted">Taxonomic Groups</small>
                 </div>
             </div>
